@@ -1,8 +1,5 @@
-const window = document.getElementById("window")
 
-window.onclick = function(){
-    window.classlist.add("expand-fadeout")
-}
-
-console.log("hiya")
+function addmovethrough() {
+    document.getElementById("window1").classList.add ("move-through"); //capital L in class list
+  }
 
