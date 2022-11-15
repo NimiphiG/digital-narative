@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(153, 185, 185);
+}
+
+#room {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(131, 55, 36);
+    z-index: 1;
+    padding-top: 10rem;
+   
+}
+
+#window {
+    width: 70rem;
+    height: 50rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: darkslategray;
+    /* background-image: url(images/rainy-window.jpg); */
+    background-size: cover;
+  
+}
+
+
+#landscape {
+   width: 100vw;
+  height: 50rem;
+  background-color: darkolivegreen;
+  float: inline-end;
+  z-index: 3;
+}
+
+#img{
+    width: 100vw;
+}
+
+.expand-fadeout{
+    animation: expand-fadeout 1s;
+}
+
+@keyframes expand-fadeout {
+    0%{
+        opacity: 100%;
+        scale: 1;
+
+    }
+    50%{
+        opacity: 80%;
+    }
+    100%{
+        opacity:0%;
+        scale: 3;
+
+    }
+}
+@keyframes example {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+  }
