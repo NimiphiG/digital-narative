@@ -4,23 +4,29 @@
 }
 
 body {
-    background-color: rgb(153, 185, 185);
-    overflow: none;
+    
+    overflow: hidden;
 }
 
-#display-box {
+/* #display-box {
     height: 100vh;
     width: 100vw;
-    display: inline;
-}
+    
+} */
 
 #room {
     width: 100vw;
     height: 100vh;
     margin: 0;
-    background-color: rgb(131, 55, 36);
+    background: radial-gradient(rgb(177, 129, 85),rgb(131, 55, 36));
     z-index: 1;
     padding-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    z-index: 1;
+ 
 
 }
 
@@ -30,30 +36,90 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    background-color: darkslategray;
-
+    background: radial-gradient(rgb(84, 106, 109),darkslategray) ;
+    position: fixed;
+    z-index: 1;
+   
 
 }
 
+#sky{
+width: 100vw;
+height: 75vh;
+background-color: rgb(141, 211, 211);
+position: fixed;
+left: 0;
+top: 0;
+z-index: -2;
 
-#landscape {
+}
+
+#hills {
     width: 100vw;
-    height: 25rem;
-    background-color: darkolivegreen;
-    position: absolute;
+    height: 25vh;
+    background-color: rgb(115, 145, 64);
+    position: fixed;
     bottom: 0;
     z-index: -1;
+    
+}
+
+#machine{
+    width: 20rem;
+    height: 20rem;
+    border-top-right-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+    border-bottom-left-radius: 10rem;
+    background-color: rgb(83, 83, 83);
+    box-shadow: inset 0 0 5rem black;
+    position: fixed;
+    left: 50rem;
+    top: 30rem;
+    z-index: -1;
+    rotate: -10deg;
+}
+
+#barrel{
+   content: "";
+    position: relative; 
+    left: 25%;
+    top: 25%;
+    width: 10rem;
+    height: 10rem;
+    background-color: rgb(83, 83, 83);
+    box-shadow: inset 0 0 2rem black;
+    border-radius: 50%;
 }
 
 .move-through{
-    animation: move-through 2s;
-    display: none ;
+    animation: move-through 5s;
+    animation-fill-mode: forwards;
+}
+.scale-up{
+    animation: scale-up 5s;
+    animation-fill-mode: forwards;
+}
 
+.cloud{
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: white;
+    position: absolute;
+    
 }
 
 @keyframes move-through {
     0%{opacity: 100%; scale: 1;}
-    100%{opacity: 0%; scale: 3;}
+   50%{scale: 1.5;}
+    100%{opacity: 0%;scale: 1.5;}
+}
+
+@keyframes scale-up {
+    0%{ scale: 1;}
+   50%{scale: 1.5;}
+   99%{opacity: 100%;}
+    100%{ opacity: 0;}
 }
 
 
