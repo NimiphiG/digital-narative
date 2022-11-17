@@ -1,5 +1,8 @@
 
 
+//arryay of clouds
+let clouds = []
+
 //move through window on click
 function addmovethrough() {
   document.getElementById("window1").classList.add("move-through");
@@ -7,37 +10,88 @@ function addmovethrough() {
 }
 
 
-//rotate machine with mouse move
-window.addEventListener("mousemove", function (e) {
+
+//rotate machine with mouse move both x and y
+window.addEventListener("mousemove", function mousemove(e) {
   const machine = document.querySelector("#machine")
-  machine.style.rotate = ((((e.x) / screen.width) * 180) - 45) + "deg";
+
+  var b = ((e.x) - 1050)
+  var a = ((e.y) - 850)
+  var rad = Math.atan2(a, b)
+  var rot = (rad * (180 / Math.PI) * -1) + 180
+
+  machine.style.rotate = -rot - 45 + "deg";
+
 
 })
 
 
 
-// create clouds on click
-window.addEventListener('click', function () {
 
+// function printmousepos(){
+//   window.addEventListener("mousemove", function mousemove(e) {
+//     var currentx = e.x
+//     var currenty = e.y
+//     console.log(currentx, currenty)
+// })}
+
+
+
+// create clouds on click position
+window.addEventListener('mousedown',
+
+  function (event) {
+    if (event.ctrlKey) {
+      console.log('cloudbusted')
+      cloudbust()
+    } else {
+      console.log('add cloud')
+      createcloud(event)
+    }
+  })
+
+function createcloud(event) {
   let newElement = document.createElement('div');
+
   newElement.className = "cloud"
+  newElement.id = "cloud"
+  newElement.style.left = (event.clientX - 25) + "px"
+  newElement.style.top = (event.clientY - 15) + "px"
+
+  clouds.push(newElement)
+
   document.getElementById("sky").appendChild(newElement)
 
-})
+}
+
+function cloudbust(e) {
+ let cloud = clouds.shift()
+ console.log(cloud)
+ if(cloud != null){
+  document.getElementById("sky").removeChild(cloud)
+ }
+}
 
 
 
 
+
+
+
+
+
+// ROTATIOON ATTEMPTS
+
+// rotate on just x mouse
+// machine.style.rotate = ((((e.x) / visualViewport.width) * 180) - 45) + "deg";
 
 // let barrel = document.getElementById("barrel");
-
 // window.addEventListener('mousemove', (e) => {
 // let x = e.clientX *100 / window.innerWidth - 50;
 // let y = e.clientY *100 / window.innerHeight - 50;
 // console.log(e.clientX);
 // barrel.style.left = x + "%";
 // barrel.style.top = y + "%";
-
 // })
 
 // $(".move-area").mousemove(function(event) {
@@ -61,10 +115,7 @@ window.addEventListener('click', function () {
 //   machine.foreach(function(machine){
 //   let x = (machine.getBoundingClientRect().left) + (machine.clientWidth/2);
 //   let y = (machine.getBoundingClientRect().top) + (machine.clientWidth/2);
-
 //   let radian = math.atan2(event.pageX - x, (event.pageY - y ));
 //   let rotation = (radian*(180/math.pi) * -1)+270;
 //   machine.style.transform = "rotate("+rotation+"deg)"
-
-// })
 // }
