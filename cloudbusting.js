@@ -2,6 +2,7 @@
 
 //arryay of clouds
 let clouds = []
+let currentCloudTotal = 0
 
 //move through window on click
 function addmovethrough() {
@@ -23,6 +24,7 @@ window.addEventListener("mousemove", function mousemove(e) {
   machine.style.rotate = -rot - 45 + "deg";
 
 
+
 })
 
 
@@ -39,8 +41,7 @@ window.addEventListener("mousemove", function mousemove(e) {
 
 // create clouds on click position
 window.addEventListener('mousedown',
-
-  function (event) {
+  function cloudMechanics(event) {
     if (event.ctrlKey) {
       console.log('cloudbusted')
       cloudbust()
@@ -54,7 +55,7 @@ function createcloud(event) {
   let newElement = document.createElement('div');
 
   newElement.className = "cloud"
-  newElement.id = "cloud"
+  newElement.id = "cloud" + currentCloudTotal       //number the clouds?
   newElement.style.left = (event.clientX - 25) + "px"
   newElement.style.top = (event.clientY - 15) + "px"
 
@@ -64,12 +65,12 @@ function createcloud(event) {
 
 }
 
-function cloudbust(e) {
- let cloud = clouds.shift()
- console.log(cloud)
- if(cloud != null){
-  document.getElementById("sky").removeChild(cloud)
- }
+function cloudbust() {
+  let cloud = clouds.shift()
+  console.log(cloud)
+  if (cloud != null) {
+    document.getElementById("sky").removeChild(cloud)
+  }
 }
 
 

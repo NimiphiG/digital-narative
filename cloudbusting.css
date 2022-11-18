@@ -1,6 +1,7 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    cursor: crosshair;
 }
 
 body {
@@ -111,8 +112,8 @@ z-index: -2;
     position: absolute;
     left: 10px;
     top: 10px;
-    
 }
+
 
 @keyframes move-through {
     0%{opacity: 100%; scale: 1;}
