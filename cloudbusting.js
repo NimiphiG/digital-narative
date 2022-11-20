@@ -2,14 +2,15 @@
 
 //arryay of clouds
 let clouds = []
+
 let currentCloudTotal = 0
+let sky = document.getElementById('sky')
 
 //move through window on click
 function addmovethrough() {
   document.getElementById("window1").classList.add("move-through");
   document.getElementById("room").classList.add("move-through");
 }
-
 
 
 //rotate machine with mouse move both x and y
@@ -29,28 +30,42 @@ window.addEventListener("mousemove", function mousemove(e) {
 
 
 
+//generate clouds on load not working
+function generateCloud() {
+  let newElement = document.createElement('div');
 
-// function printmousepos(){
-//   window.addEventListener("mousemove", function mousemove(e) {
-//     var currentx = e.x
-//     var currenty = e.y
-//     console.log(currentx, currenty)
-// })}
+  newElement.className = "cloud"
+  newElement.id = "cloud" + currentCloudTotal
+  newElement.style.left = (randomX) + "px"
+  newElement.style.top = (randomY) + "px"
+  clouds.push(newElement)
+  document.getElementById("sky").appendChild(newElement)
+
+  console.log('random run')
+  console.log(randomX)
+
+  let randomX = getrandomx()
+  function getrandomx() {
+    Math.floor(Math.random() * 1000)
+  }
+
+}
 
 
-
-// create clouds on click position
+// mouse function
 window.addEventListener('mousedown',
   function cloudMechanics(event) {
     if (event.ctrlKey) {
-      console.log('cloudbusted')
-      cloudbust()
-    } else {
       console.log('add cloud')
       createcloud(event)
+
+    } else {
+      console.log('cloudbusted')
+      cloudbust()
     }
   })
 
+// create cloud on click
 function createcloud(event) {
   let newElement = document.createElement('div');
 
@@ -62,9 +77,9 @@ function createcloud(event) {
   clouds.push(newElement)
 
   document.getElementById("sky").appendChild(newElement)
-
 }
 
+// remove first cloud from array
 function cloudbust() {
   let cloud = clouds.shift()
   console.log(cloud)

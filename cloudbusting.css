@@ -115,6 +115,19 @@ z-index: -2;
 }
 
 
+
+.fade-out{
+    animation: fade-out 2s;
+}
+
+
+@keyframes fade-out {
+    0%{opacity: 100%;}
+    100%{opacity: 0%;}
+    
+}
+
+
 @keyframes move-through {
     0%{opacity: 100%; scale: 1;}
    50%{scale: 1.5;}
