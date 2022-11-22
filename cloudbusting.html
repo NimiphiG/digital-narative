@@ -7,28 +7,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cloudbusting</title>
     <link rel="stylesheet" href="cloudbusting.css" />
-    <script src="/cloudbusting.js" delay></script>
+    <script src="/cloudbusting.js" defer></script>
 </head>
 
-<body onload="generateCloud()" >
-    <!-- <div id="display-box"></div> -->
+<body>
 
     <div id="room">
-        <button id="window1" onclick="addmovethrough()">Click me</button>
+        <button id="window1">Click me</button>
     </div>
-
-    <div id="machine">
-        <div id="barrel"></div>
-    </div>
-
-    <div id="hills"></div>
-    <div id="sky">
-     
-    </div>
+    
 
 
+
+
+        <div id="sky"></div>
+
+        <div id="machine">
+            <div id="barrel"></div>
+        </div>
+
+
+        <div id="hills">
+            <div id="key">
+                <h2>click to bust<br> or <br>ctrl+click to restore</h2>
+            </div>
+        </div>
+    
     </div>
+
     </div>
+
 </body>
 
 </html>
