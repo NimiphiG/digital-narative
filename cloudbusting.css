@@ -5,8 +5,12 @@
 }
 
 body {
-    
-  
+    overflow:hidden;
+  background-image: linear-gradient(rgb(141, 211, 211),rgb(203, 113, 57)) ;
+  font-family: 'Comfortaa', cursive;
+}
+body::-webkit-scrollbar{
+    display: none;
 }
 
 /* #display-box {
@@ -46,25 +50,53 @@ body {
 #sky{
 width: 100vw;
 height: 75vh;
-background-color: rgb(141, 211, 211);
+
 position: absolute;
 left: 0;
 top: 0;
 z-index: -2;
+overflow: hidden;
 
 }
 
 #hills {
     width: 100vw;
-    height: 60vh;
-    background-color:  rgb(161, 128, 113);
-  
-    border-top: solid 15vh;
-    border-color:  rgb(116, 167, 75);;
+    height: auto;
     position: absolute;
-    top:75vh;
+    bottom: -40vh;
     z-index: -1;
-    
+    padding: 0;
+  
+}
+
+#muddyground{
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    left: 60vw;
+    top: 110vh;
+    background-size: contain;
+    padding: 100px;
+}
+
+#yoyo{
+    width: 200px;
+    height: auto;
+}
+.mud{
+    width: 70px;
+    height:70px;
+    background-color: rgb(96,75,58);
+    position:absolute;
+    border-radius: 20px;
+    font-size: 0;
+    text-align: center;
+    line-height: 70px;
+}
+.mud:hover{
+    font-size: 20px;
+    z-index: 2;
+ 
 }
 
 #machine{
@@ -76,8 +108,8 @@ z-index: -2;
     background-color: rgb(83, 83, 83);
     box-shadow: inset 0 0 5rem black;
     position: absolute;
-    left: 900px;
-    top: 700px;
+    left: 1200px;
+    top: 600px;
     z-index: -1;
     
 }
@@ -136,9 +168,10 @@ z-index: -2;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
-    background-color: darkcyan;
+    background-color: rgb(93, 126, 159);
     transform: rotate(45deg);
     position: absolute;
+    opacity: 70%;
    
 }
 
