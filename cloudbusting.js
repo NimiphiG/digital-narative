@@ -21,7 +21,7 @@ function addmovethrough() {
 }
 document.getElementById('window1').addEventListener('animationend', shiftZ)
 function shiftZ() {
-  document.getElementById('sky').style.zIndex = 1
+  document.getElementById('sky').style.zIndex = 2
   document.getElementById('machine-whole').style.zIndex = 1
   document.getElementById('ground').style.zIndex = 1
   document.getElementById('muddyground').style.zIndex = 1
@@ -50,8 +50,8 @@ function mousemove(e) {
   const machine = document.querySelector("#machine")
 
 
-  var b = ((e.x) - 2200) //machine-whole left
-  var a = ((e.y) - 670)  // machine-whole top
+  var b = ((e.x) - 1300) //machine-whole left
+  var a = ((e.y) - 550)  // machine-whole top
   var rad = Math.atan2(a, b)
   var rot = (rad * (180 / Math.PI) * -1) + 180
 
@@ -61,7 +61,7 @@ function mousemove(e) {
 
 
 //generate clouds on load 
-window.onload = generateCloud(), generateMud()
+window.onload = generateCloud(), generateMud(); 
 function generateCloud() {
   for (let i = currentCloudTotal; i <= 100; i++) {
 
@@ -69,7 +69,7 @@ function generateCloud() {
     let newElement = document.createElement('div');
 
     let randomX = Math.floor(Math.random() * visualViewport.width);
-    let randomY = Math.floor(Math.random() * ((visualViewport.height / 100) * 50));
+    let randomY = Math.floor(Math.random() * ((visualViewport.height / 100) * 40));
 
     clouds.push(newElement)
     let cloudIndex = clouds.indexOf(newElement)
@@ -84,7 +84,6 @@ function generateCloud() {
   }
 }
 //generate mud on load 
-
 function generateMud() {
   for (let i = currentMudTotal; i <= 60; i++) {
 
@@ -160,6 +159,7 @@ function bustcloud(event) {
   newElement.className = 'rain fall'
   newElement.style.left = (event.clientX - 15) + "px"
   newElement.style.top = (event.clientY - 15) + "px"
+  
 
   document.getElementById('sky').appendChild(newElement)
   console.log(newElement)
@@ -167,7 +167,7 @@ function bustcloud(event) {
   console.log('clouds busted=' + cloudsBusted.length)
 
   //start second  stage
-  if (cloudsBusted.length == 4) {
+  if (cloudsBusted.length == 5) {
    
     document.getElementById('stage-1-text').classList.add('fade-out')
     
@@ -184,20 +184,20 @@ function bustcloud(event) {
   }
   
   //move to fourth stage
-  if (cloudsBusted.length == 11 && cloudsBuilt.length >= 1) {
+  if (cloudsBusted.length == 15 && cloudsBuilt.length >= 1) {
     console.log('stage 4')
     document.getElementById('stage-3-text').classList.add('fade-out')
     document.getElementById('dad').classList.add('move-to-car')
   }
   //move to fifth stage
-  if (cloudsBusted.length == 12 && cloudsBuilt.length >= 1) {
+  if (cloudsBusted.length == 20 && cloudsBuilt.length >= 1) {
     console.log('stage 5')
     document.getElementById('stage-4-text').classList.add('fade-out')
     document.getElementById('dad').classList.remove('move-to-car')
     document.getElementById('dad').classList.add('fade-out-dad')
   }
    //move to sixth stage
-   if (cloudsBusted.length == 13 && cloudsBuilt.length >= 1) {
+   if (cloudsBusted.length == 25 && cloudsBuilt.length >= 1) {
     console.log('stage 6')
     document.getElementById('stage-5-text').classList.add('fade-out')
     document.getElementById('car').classList.remove('fade-in')

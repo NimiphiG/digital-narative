@@ -12,8 +12,23 @@ body {
     cursor: crosshair;
     overflow: hidden;
     font-family: 'Comfortaa';
- 
 
+}
+#padding-left{
+   
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+#padding-right{
+    width: 1000px;
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+   left: 1900px;
+    top: 0;
 }
 
 body::-webkit-scrollbar {
@@ -23,16 +38,13 @@ h1{
     font-size: 0px;
     color: rgb(224, 119, 81);
 }
-/* #display-box {
-    height: 100vh;
-    width: 100vw;
-    
-} */
+
 
 #room {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
+    width: 1900px;
+    height: 1200px;
+    margin-left: auto;
+    margin-right: auto;
     background: radial-gradient(rgb(177, 129, 85), rgb(131, 55, 36));
     background-image: url(images/room-and-window.png);
     background-size: cover;
@@ -43,6 +55,7 @@ h1{
     align-items: center;
     justify-items: center;
     z-index: 1;
+
 
 }
 
@@ -68,8 +81,8 @@ h1{
 font-size: 50px;
 }
 #sky {
-    width: 100vw;
-    height: 100vh;
+    width: 1900px;
+    height: 1200px;
     position: absolute;
     left: 0;
     top: 0;
@@ -79,10 +92,10 @@ font-size: 50px;
 }
 
 #hills {
-    width: 100vw;
+    width: 1900px;
     height: auto;
     position: absolute;
-    bottom: -40vh;
+    bottom: -480px;
     z-index: -1;
     padding: 0;
     overflow: hidden;
@@ -90,16 +103,16 @@ font-size: 50px;
 }
 
 .text-box{
-    width: 600px;
+    width: 400px;
     height: auto;
     background-color: rgb(85, 109, 69);
     border-radius: 30px;
-    font-size: 30px;
+    font-size: 18px;
     position: absolute;
     color: rgb(151, 170, 84);
-    left:2000px;
-    top: 1050px;
-    padding: 40px;
+    left:-100px;
+    top: 250px;
+    padding: 20px;
     z-index: -1;
 }
 p{
@@ -126,8 +139,8 @@ p{
 
 #car {
     position: absolute;
-    left: 20vw;
-    top: 60vh;
+    left: 380px;
+    top: 720px;
     opacity: 0%;
 
 }
@@ -140,21 +153,23 @@ p{
     top: 110vh;
     background-size: contain;
     padding: 100px;
+   
 }
 
 
 #yoyo {
     width: 200px;
     height: auto;
+   
 }
 
 
 /* machine stlyes */
 #machine-whole {
-    width: 1000px;
-    height: 1000px;
-    left: 2200px;
-    top: 770px;
+    width: 50px;
+    height: 50px;
+    left: 1300px;
+    top: 585px;
     position: absolute;
     z-index: -1;
 }
@@ -172,8 +187,9 @@ p{
 #machine-parts {
     width: 400px;
     height: 400px;
-
+border-radius: 100px;
     position: absolute;
+
 }
 #machine-base {
     width: 500px;
@@ -182,19 +198,7 @@ p{
     top: -250px;
     position: absolute;
 }
-#key {
-    width: 20vh;
-    height: 20vh;
-    position: fixed;
-    right: 0px;
-    bottom: 0px;
-    z-index: -1;
-    text-align: center;
-    padding: 5vh;
-    background-color: rgb(161, 128, 113);
-    border-radius: 8vh;
-    display: none;
-}
+
 
 /* new div styles */
 .cloud {
@@ -235,13 +239,12 @@ p{
     line-height: 70px;
     font-family: 'Comfortaa', cursive;
     color: rgb(151, 170, 84);
+
 }
 
 .mud:hover {
     font-size: 20px;
     z-index: 2;
-cursor: none;
-
 }
 
 
@@ -371,11 +374,11 @@ cursor: none;
     51%{
         scale: 0.4;
         opacity: 0%; 
-        transform: translateX(-3300px) translateY(+350px);
+        transform: translateX(-1750px) translateY(+150px);
        
     }
     100%{
-        transform: translateX(-3300px) translateY(+350px);
+        transform: translateX(-1750px) translateY(+150px);
         scale: 0.4;
         opacity: 100%;
     }
