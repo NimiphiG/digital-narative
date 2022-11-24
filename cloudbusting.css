@@ -24,6 +24,8 @@ body::-webkit-scrollbar{
     height: 100vh;
     margin: 0;
     background: radial-gradient(rgb(177, 129, 85),rgb(131, 55, 36));
+    background-image: url(images/DALL·E\ cloudbusting\ scene\ 1.png);
+    background-size: contain;
     padding-top: 10rem;
     display: flex;
     flex-direction: column;
@@ -50,7 +52,6 @@ body::-webkit-scrollbar{
 #sky{
 width: 100vw;
 height: 75vh;
-
 position: absolute;
 left: 0;
 top: 0;
@@ -69,6 +70,14 @@ overflow: hidden;
   
 }
 
+#car{
+    position: absolute;
+    left: 20vw;
+    top:60vh;
+    opacity: 0%;
+
+}
+
 #muddyground{
     width: 400px;
     height: 300px;
@@ -79,25 +88,12 @@ overflow: hidden;
     padding: 100px;
 }
 
+
 #yoyo{
     width: 200px;
     height: auto;
 }
-.mud{
-    width: 70px;
-    height:70px;
-    background-color: rgb(96,75,58);
-    position:absolute;
-    border-radius: 20px;
-    font-size: 0;
-    text-align: center;
-    line-height: 70px;
-}
-.mud:hover{
-    font-size: 20px;
-    z-index: 2;
- 
-}
+
 
 #machine{
     width: 300px;
@@ -125,6 +121,7 @@ overflow: hidden;
     padding:5vh;
     background-color: rgb(161, 128, 113);
     border-radius:8vh;
+    display: none;
 }
 
 
@@ -140,15 +137,8 @@ overflow: hidden;
     border-radius: 50%;
 } */
 
-.move-through{
-    animation: move-through 0.5s;
-    animation-fill-mode: forwards;
-}
-.scale-up{
-    animation: scale-up 0.5s;
-    animation-fill-mode: forwards;
-}
 
+/* new div styles */
 .cloud{
     width: 50px;
     height: 30px;
@@ -161,7 +151,6 @@ overflow: hidden;
     left: 10px;
     top: 10px;
 }
-
 .rain{
     width: 30px;
     height: 30px;
@@ -174,27 +163,49 @@ overflow: hidden;
     opacity: 70%;
    
 }
+.mud{
+    width: 70px;
+    height:70px;
+    background-color: rgb(96,75,58);
+    position:absolute;
+    border-radius: 20px;
+    font-size: 0;
+    text-align: center;
+    line-height: 70px;
+}
+.mud:hover{
+    font-size: 20px;
+    z-index: 2;
 
+}
+
+
+
+/* animation classes */
+.move-through{
+    animation: move-through 0.5s;
+    animation-fill-mode: forwards;
+}
+.scale-up{
+    animation: scale-up 0.5s;
+    animation-fill-mode: forwards;
+}
 .fall{
     animation: fall 2s linear;
 
     animation-fill-mode: forwards;
 }
-
 .fade-out{
     animation: fade-out 2s;
+    animation-fill-mode: forwardss;
 }
 
-@keyframes fall {
-    0%{transform: translateY(0px) rotate(45deg);}
-    100%{transform: translateY(1000px) rotate(45deg); display: none;}
+.fade-in{
+    animation: fade-in 1s;
+    animation-fill-mode: forwards;
 }
 
-@keyframes fade-out {
-    0%{opacity: 100%;}
-    100%{opacity: 0%;}
-    
-}
+
 
 @keyframes move-through {
     0%{opacity: 100%; scale: 1;}
@@ -209,5 +220,19 @@ overflow: hidden;
     100%{ opacity: 0;display:none;}
 }
 
+@keyframes fall {
+    0%{transform: translateY(0px) rotate(45deg);}
+    100%{transform: translateY(1000px) rotate(45deg); display: none;}
+}
 
+@keyframes fade-out {
+    0%{opacity: 100%;}
+    100%{opacity: 0%;}
+    
+}
+
+@keyframes fade-in{
+    0%{opacity: 0%;}
+    100%{opacity: 100%;}
+}
 

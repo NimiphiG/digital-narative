@@ -1,7 +1,8 @@
 
 
-//arryay of clouds
+//arryays and totals
 let clouds = []
+let cloudsBusted = []
 let muds = []
 let currentCloudTotal = 0
 let currentMudTotal = 0
@@ -24,6 +25,7 @@ function shiftZ() {
   document.getElementById('key').style.zIndex = 1
   document.getElementById('ground').style.zIndex = 1
   document.getElementById('muddyground').style.zIndex = 1
+  document.getElementById('car').style.zIndex = 1
   document.body.style.overflow = 'visible'
 
 }
@@ -31,7 +33,7 @@ function shiftZ() {
 
 
 //rotate machine with mouse move both x and y
-window.addEventListener("mousemove", mousemove)
+window.addEventListener("mousemove", mousemove, )
 
 function mousemove(e) {
 
@@ -45,10 +47,12 @@ function mousemove(e) {
   machine.style.rotate = -rot - 45 + "deg";
 }
 
+
+
 //generate clouds on load 
-window.onload = generateCloud(),generateMud()
+window.onload = generateCloud(), generateMud()
 function generateCloud() {
-  for (let i = currentCloudTotal; i <= 20; i++) {
+  for (let i = currentCloudTotal; i <= 5; i++) {
 
 
     let newElement = document.createElement('div');
@@ -71,24 +75,24 @@ function generateCloud() {
 //generate mud on load 
 
 function generateMud() {
-  for (let i = currentMudTotal; i <= 50; i++) {
+  for (let i = currentMudTotal; i <= 60; i++) {
 
     let newElement = document.createElement('div');
 
     let randomX = Math.floor(Math.random() * 350);
     let randomY = Math.floor(Math.random() * 250);
-    let randomR = Math.floor(Math.random() * 360)+'deg';
+    let randomR = Math.floor(Math.random() * 360) + 'deg';
 
-   
+
 
     muds.push(newElement)
     let mudIndex = muds.indexOf(newElement)
     newElement.className = "mud"
-    newElement.id = mudIndex    
+    newElement.id = mudIndex
     newElement.style.left = (randomX) + "px";
     newElement.style.top = (randomY) + "px";
- newElement.style.rotate = randomR
- newElement.textContent = 'Dig?'
+    newElement.style.rotate = randomR
+    newElement.textContent = 'Dig?'
 
     let mud = document.getElementById("muddyground").appendChild(newElement)
     mud.addEventListener('click', bustmud);
@@ -137,11 +141,22 @@ function bustcloud(event) {
   }
   console.log('make rain')
   let newElement = document.createElement('div');
+  cloudsBusted.push(newElement)
   newElement.className = 'rain fall'
   newElement.style.left = (event.clientX - 15) + "px"
   newElement.style.top = (event.clientY - 15) + "px"
+
   document.getElementById('sky').appendChild(newElement)
-  document.getElementsByClassName('fall').style.animation = 'fall' + time + 's' + 'linear'
+  console.log(clouds.length)
+  console.log(cloudsBusted.length)
+  
+  //move to next stage
+  if (cloudsBusted.length>5) {
+
+  console.log('car')
+  document.getElementById('car').classList.add('fade-in')
+}
+
 }
 
 //remove specific mud 
@@ -151,16 +166,12 @@ function bustmud(event) {
   if (mud != null) {
     document.getElementById("muddyground").removeChild(event.target)
   }
-  
+
 }
 
 
 
 //when all clouds are gone do thing 
-
-while (clouds.length === 0) {
-
-}
 
 
 
