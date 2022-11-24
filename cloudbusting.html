@@ -9,49 +9,67 @@
     <link rel="stylesheet" href="cloudbusting.css" />
     <script src="/cloudbusting.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet" delay>
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap" rel="stylesheet" delay>
     <script>
         window.onload = function () {
-            document.body.scrollTop = 0;
+            document.body.scrollTop = 0
         }
 
     </script>
 
 </head>
 
-<body>
+<body draggable="false">
 
     <div id="room">
-        <img src="">
-        <button id="window1">Click me</button>
+       
+        <button id="window1">Remeber the Rain?</button>
     </div>
 
-
-
-    <div id="machine-whole">
-        <img id="machine-base" src="images/machine-base.png">
-        <div id="machine">
-            <img id="machine-parts" src="images/machine-parts.png">
-        </div>
-        
-    </div>
-    
     <div id="sky"></div>
 
 
 
-
-    <img id="hills" src="images/hils-transparent.png">
-    <div id="muddyground"><img id="yoyo" src="images/DALL·E yoyo.png"></div>
+    <img id="hills" src="images/hils-transparent.png" draggable="false">
+    <div id="muddyground"><img id="yoyo" src="images/DALL·E yoyo.png" draggable="false"></div>
     <div id="ground"></div>
-    <div id="key">
-        <h2>click to bust<br> or <br>ctrl+click to restore</h2>
+
+    <img id="car" src="images/black car.png" draggable="false">
+
+    <div id="machine-whole">
+        <img id="boy" src="images/boy.png" alt="a boy looking out on rolling hills" draggable="false">
+
+        <img id="machine-base" src="images/machine-base.png" draggable="false">
+        <div id="machine">
+            <img id="machine-parts" src="images/machine-parts.png" draggable="false"> 
+        </div>
+
+        <img id="dad" src="images/dad.png" draggable="false">
     </div>
-    <img id="car" src="images/black car.png">
+    <div class="text-box" id="stage-5-text">
+        <p>...Daddy?</p>
+    </div>
+    <div class="text-box" id="stage-4-text">
+        <p>Wait... Daddy, where are you going?</p>
+    </div>
+    <div class="text-box" id="stage-3-text">
+        <p>oh... umm<br> you just stay here and keep on Cloudbusting buddy.</p>
+    </div>
+    <div class="text-box" id="encoragement">
+        <p>Yes! Thats it.<br>
+            Now Make it RAIN Son</p>
+    </div>
+    <div class="text-box" id="stage-2-text">
+        <p>Well done! now swich to cloudbuilder mode by holding down the ctrl button.</p>
+    </div>
 
 
+    <div class="text-box" id="stage-1-text">
+        <p>Now you remeber how the cloudbuster works now dont you son?<br>
+            Just point the barrels at on of those clouds and 'click'.</p>
     </div>
 
-    </div>
+
 
 </body>
 

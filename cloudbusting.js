@@ -3,6 +3,7 @@
 //arryays and totals
 let clouds = []
 let cloudsBusted = []
+let cloudsBuilt = []
 let muds = []
 let mudsDug = []
 let currentCloudTotal = 0
@@ -22,11 +23,19 @@ document.getElementById('window1').addEventListener('animationend', shiftZ)
 function shiftZ() {
   document.getElementById('sky').style.zIndex = 1
   document.getElementById('machine-whole').style.zIndex = 1
-  document.getElementById('hills').style.zIndex = 1
-  document.getElementById('key').style.zIndex = 1
   document.getElementById('ground').style.zIndex = 1
   document.getElementById('muddyground').style.zIndex = 1
   document.getElementById('car').style.zIndex = 1
+  document.getElementById('dad').style.zIndex = 1
+  document.getElementById('boy').style.zIndex = 0
+  document.getElementById('stage-1-text').style.zIndex = 1
+  document.getElementById('stage-2-text').style.zIndex = 1
+  document.getElementById('stage-3-text').style.zIndex = 1
+  document.getElementById('stage-4-text').style.zIndex = 1
+  document.getElementById('stage-5-text').style.zIndex = 1
+  document.getElementById('encoragement').style.zIndex = 1
+
+
   document.body.style.overflow = 'visible'
 
 }
@@ -34,14 +43,15 @@ function shiftZ() {
 
 
 //rotate machine with mouse move both x and y
-window.addEventListener("mousemove", mousemove, )
+window.addEventListener("mousemove", mousemove,)
 
 function mousemove(e) {
 
   const machine = document.querySelector("#machine")
 
-  var b = ((e.x) - 1500)
-  var a = ((e.y) - 500)
+
+  var b = ((e.x) - 2200) //machine-whole left
+  var a = ((e.y) - 670)  // machine-whole top
   var rad = Math.atan2(a, b)
   var rot = (rad * (180 / Math.PI) * -1) + 180
 
@@ -53,7 +63,7 @@ function mousemove(e) {
 //generate clouds on load 
 window.onload = generateCloud(), generateMud()
 function generateCloud() {
-  for (let i = currentCloudTotal; i <= 5; i++) {
+  for (let i = currentCloudTotal; i <= 100; i++) {
 
 
     let newElement = document.createElement('div');
@@ -109,10 +119,6 @@ document.getElementById('sky').addEventListener('mousedown',
     if (event.ctrlKey) {
       console.log('add cloud')
       createcloud(event)
-
-    } else {
-      console.log('cloudbusted')
-      // cloudbust()
     }
   })
 
@@ -121,7 +127,8 @@ document.getElementById('sky').addEventListener('mousedown',
 function createcloud(event) {
 
   let newElement = document.createElement('div');
-
+  clouds.push(newElement)
+cloudsBuilt.push(newElement)
   let cloudIndex = clouds.indexOf(newElement)
   newElement.className = "cloud"
   newElement.id = cloudIndex      //number the clouds
@@ -131,6 +138,12 @@ function createcloud(event) {
   let cloud = document.getElementById("sky").appendChild(newElement)
 
   cloud.addEventListener('click', bustcloud,)
+// start encoragement stage
+if (cloudsBuilt.length >= 1) {
+  document.getElementById('stage-2-text').classList.add('fade-out')
+  // document.getElementById('stage-2-text').classList.add('fade-in')
+  console.log('encoragement')
+}
 }
 
 //remove specific cloud and add raindrop
@@ -142,35 +155,68 @@ function bustcloud(event) {
   }
   console.log('make rain')
   let newElement = document.createElement('div');
-  cloudsBusted.push('busted')
+  cloudsBusted.push(newElement)
+
   newElement.className = 'rain fall'
   newElement.style.left = (event.clientX - 15) + "px"
   newElement.style.top = (event.clientY - 15) + "px"
 
   document.getElementById('sky').appendChild(newElement)
-  console.log(clouds.length)
-  console.log(cloudsBusted.length)
-  
-  //move to next stage
-  if (cloudsBusted.length>5) {
+  console.log(newElement)
+  console.log(cloudsBusted)
+  console.log('clouds busted=' + cloudsBusted.length)
 
-  console.log('car')
-  document.getElementById('car').classList.add('fade-in')
-}
+  //start second  stage
+  if (cloudsBusted.length == 4) {
+   
+    document.getElementById('stage-1-text').classList.add('fade-out')
+    
+    console.log('stage 2')
+  }
+
+  
+  //move to thrird stage
+  if (cloudsBusted.length == 10 && cloudsBuilt.length >= 1) {
+    console.log('stage 3') 
+    document.getElementById('car').classList.add('fade-in')
+ 
+    document.getElementById('encoragement').classList.add('fade-out')
+  }
+  
+  //move to fourth stage
+  if (cloudsBusted.length == 11 && cloudsBuilt.length >= 1) {
+    console.log('stage 4')
+    document.getElementById('stage-3-text').classList.add('fade-out')
+    document.getElementById('dad').classList.add('move-to-car')
+  }
+  //move to fifth stage
+  if (cloudsBusted.length == 12 && cloudsBuilt.length >= 1) {
+    console.log('stage 5')
+    document.getElementById('stage-4-text').classList.add('fade-out')
+    document.getElementById('dad').classList.remove('move-to-car')
+    document.getElementById('dad').classList.add('fade-out-dad')
+  }
+   //move to sixth stage
+   if (cloudsBusted.length == 13 && cloudsBuilt.length >= 1) {
+    console.log('stage 6')
+    document.getElementById('stage-5-text').classList.add('fade-out')
+    document.getElementById('car').classList.remove('fade-in')
+    document.getElementById('car').classList.add('fade-out')
+  }
 
 }
 
 //remove specific mud 
 function bustmud(event) {
   let mud = muds.splice((event.target.id - 1), 1)
-mudsDug.push('dug')
+  mudsDug.push('dug')
   if (mud != null) {
     document.getElementById("muddyground").removeChild(event.target)
   }
-if(mudsDug.length > 5){
-  console.log('Radiation Overdose')
-  document.body.style.cursor = 'green'
-}
+  if (mudsDug.length > 5) {
+    console.log('Radiation Overdose')
+    document.body.style.cursor = 'green'
+  }
 }
 
 
