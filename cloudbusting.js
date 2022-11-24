@@ -4,6 +4,7 @@
 let clouds = []
 let cloudsBusted = []
 let muds = []
+let mudsDug = []
 let currentCloudTotal = 0
 let currentMudTotal = 0
 
@@ -20,7 +21,7 @@ function addmovethrough() {
 document.getElementById('window1').addEventListener('animationend', shiftZ)
 function shiftZ() {
   document.getElementById('sky').style.zIndex = 1
-  document.getElementById('machine').style.zIndex = 1
+  document.getElementById('machine-whole').style.zIndex = 1
   document.getElementById('hills').style.zIndex = 1
   document.getElementById('key').style.zIndex = 1
   document.getElementById('ground').style.zIndex = 1
@@ -39,12 +40,12 @@ function mousemove(e) {
 
   const machine = document.querySelector("#machine")
 
-  var b = ((e.x) - 1350)
-  var a = ((e.y) - 750)
+  var b = ((e.x) - 1500)
+  var a = ((e.y) - 500)
   var rad = Math.atan2(a, b)
   var rot = (rad * (180 / Math.PI) * -1) + 180
 
-  machine.style.rotate = -rot - 45 + "deg";
+  machine.style.rotate = -rot - 35 + "deg";
 }
 
 
@@ -141,7 +142,7 @@ function bustcloud(event) {
   }
   console.log('make rain')
   let newElement = document.createElement('div');
-  cloudsBusted.push(newElement)
+  cloudsBusted.push('busted')
   newElement.className = 'rain fall'
   newElement.style.left = (event.clientX - 15) + "px"
   newElement.style.top = (event.clientY - 15) + "px"
@@ -162,11 +163,14 @@ function bustcloud(event) {
 //remove specific mud 
 function bustmud(event) {
   let mud = muds.splice((event.target.id - 1), 1)
-
+mudsDug.push('dug')
   if (mud != null) {
     document.getElementById("muddyground").removeChild(event.target)
   }
-
+if(mudsDug.length > 5){
+  console.log('Radiation Overdose')
+  document.body.style.cursor = 'green'
+}
 }
 
 

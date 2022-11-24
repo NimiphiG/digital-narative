@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    cursor: crosshair;
+}
+
+body {
+    overflow:hidden;
+    height: 150vh;
+  background-image: linear-gradient(rgb(141, 211, 211),rgb(203, 113, 57)) ;
+  font-family: 'Comfortaa', cursive;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+
+/* #display-box {
+    height: 100vh;
+    width: 100vw;
+    
+} */
+
+#room {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background: radial-gradient(rgb(177, 129, 85),rgb(131, 55, 36));
+    background-image: url(images/DALL·E\ cloudbusting\ scene\ 1.png);
+    background-size: contain;
+    padding-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    z-index: 1;
+ 
+
+}
+
+#window1 {
+    width: 70rem;
+    height: 50rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: radial-gradient(rgb(84, 106, 109),darkslategray) ;
+    position: fixed;
+    z-index: 1;
+   
+
+}
+.move-through{
+    animation: move-through 0.5s;
+    animation-fill-mode: forwards;
+}
